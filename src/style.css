@@ -70,6 +70,7 @@ button {
 .main-content {
   height: calc(80vh - 10px);
   overflow-y: auto;
+  overflow-x: auto;
 }
 
 .footer {
