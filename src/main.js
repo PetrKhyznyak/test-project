@@ -1,4 +1,4 @@
-export class AccordionList {
+class AccordionList {
   constructor(data, mainContent) {
     this.data = data;
     this.mainContent= mainContent;
@@ -55,7 +55,7 @@ export class AccordionList {
 
 
 
-export class MainContent {
+class MainContent {
   constructor(container) {
     this.container = container;
   }
