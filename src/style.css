@@ -6,7 +6,7 @@ body {
   display: grid;
   grid-template-columns: 25% 75%;
   grid-template-areas:
-          "sidebar header"
+          "header header"
           "sidebar main"
           "footer footer";
   margin: 0;
@@ -33,7 +33,8 @@ button {
   display: flex;
   height: 10vh;
   grid-area: header;
-  justify-content: end;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid cadetblue;
 }
 
@@ -42,22 +43,12 @@ button {
 .sidebar {
   display: grid;
   padding-right: 10px;
-  grid-area: sidebar;
   border-right: 1px solid cadetblue;
 }
 
-.sidebar-btnbox {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  width: 100%;
-}
-
-.first-button {
-}
-
 .sidebar-menu {
-  height: 80vh;
+  height: calc(80vh - 10px);
+  overflow-y: auto;
 }
 .menu-btn {
   height: auto;
@@ -72,10 +63,13 @@ button {
 }
 .main {
   display: flex;
-  height: 80vh;
   grid-area: main;
   justify-content: center;
   align-items: center;
+}
+.main-content {
+  height: calc(80vh - 10px);
+  overflow-y: auto;
 }
 
 .footer {
