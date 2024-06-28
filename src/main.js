@@ -5,7 +5,7 @@ class AccordionList {
   }
 
 
-  createAccordionList(data = this.data) {
+  createAccordionList(mainContainer, data = this.data) {
     const ul = document.createElement('ul')
     for (const key in data) {
       const li = document.createElement('li')
@@ -36,11 +36,12 @@ class AccordionList {
       li.appendChild(printBtn);
       li.appendChild(document.createTextNode(')'));
       if(Object.keys(data[key]).length > 0) {
-        const nestedUl = this.createAccordionList(data[key]);
+        const nestedUl = this.createAccordionList(mainContainer, data[key]);
         nestedUl.style.display = 'none';
         li.appendChild(nestedUl);
         li.addEventListener('click', (e) => {
           e.stopPropagation();
+          mainContainer.innerHTML = '';
           if (e.target === textSpan) {
             if (nestedUl.style.display === 'none') nestedUl.style.display = 'block';
             else nestedUl.style.display = 'none';
@@ -213,4 +214,4 @@ const data = {
 const mainContent = new MainContent(mainContainer);
 const list = new AccordionList(data, mainContent);
 menu.innerHTML = '';
-menu.appendChild(list.createAccordionList())
+menu.appendChild(list.createAccordionList(mainContainer))
